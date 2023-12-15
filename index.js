@@ -38,26 +38,31 @@ const questions = [
 ];
 
 //* get list of licenses
-let licenseNames = [];
+let licenseList = [];
 let licenseUrls = [];
-const rawLicenses = await fetch('https://api.github.com/licenses', {
+
+const rawData = await fetch('https://api.github.com/licenses', {
    headers: {
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
    },
 });
-const licenseData = await rawLicenses.json();
+
+const licenseData = await rawData.json();
+
 licenseData.forEach((license) => {
-   licenseNames.push(license.name);
-   licenseUrls.push('https://choosealicense.com/licenses/' + license.key);
+   licenseList.push({
+      key: license.key,
+      name: license.name,
+   });
 });
-console.log('licenseList outside:', licenseList);
 
 // prettier-ignore
 inquirer
    .prompt(questions)
    .then((answers) => {
       console.log('answers:', answers);
+      
       const fileData = `# ${answers.projectTitle}
 ## Description
 - ${answers.description}
