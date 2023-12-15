@@ -1,6 +1,7 @@
 //* Include packages needed for this application
 import inquirer from 'inquirer';
 import fs from 'fs';
+import fetch from 'node-fetch';
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -35,6 +36,30 @@ const questions = [
       message: 'Enter detailed instructions about how to test the project:',
    },
 ];
+
+//* get list of licenses
+let licenseList = [];
+
+fetch('https://api.github.com/licenses', {
+   headers: {
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+   },
+})
+   .then((rawLicenses) => {
+      return rawLicenses.json();
+   })
+   .then((licenseData) => {
+      licenseData.forEach((license) => {
+         licenseList.push({ name: license.name, url: 'https://choosealicense.com/licenses/' + license.key });
+      });
+      console.log('licenseList:', licenseList);
+   })
+   .catch((err) => {
+      console.log(err);
+   });
+
+console.log('licenseList outside:', licenseList);
 
 // prettier-ignore
 inquirer
