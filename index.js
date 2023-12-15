@@ -4,6 +4,25 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 
 // TODO: Create an array of questions for user input
+
+//* get list of licenses
+let licenseObjectList = [];
+let licenseList = [];
+const rawData = await fetch('https://api.github.com/licenses', {
+   headers: {
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+   },
+});
+const licenseData = await rawData.json();
+licenseData.forEach((license) => {
+   licenseObjectList.push({
+      key: license.key,
+      name: license.name,
+   });
+   licenseList.push(license.name);
+});
+
 const questions = [
    {
       type: 'input',
@@ -35,35 +54,28 @@ const questions = [
       name: 'tests',
       message: 'Enter detailed instructions about how to test the project:',
    },
+   {
+      type: 'rawlist',
+      name: 'licenseType',
+      message: 'Select your project license type:',
+      choices: licenseList,
+   },
 ];
 
-//* get list of licenses
-let licenseList = [];
-let licenseUrls = [];
+const answers = await inquirer.prompt(questions);
 
-const rawData = await fetch('https://api.github.com/licenses', {
+const license = licenseObjectList.filter(
+   (element) => element.name == answers.licenseType
+);
+const rawDescription = await fetch('https://api.github.com/licenses/' + license[0].key, {
    headers: {
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
    },
 });
+const licenseDescription = (await rawDescription.json()).description
 
-const licenseData = await rawData.json();
-
-licenseData.forEach((license) => {
-   licenseList.push({
-      key: license.key,
-      name: license.name,
-   });
-});
-
-// prettier-ignore
-inquirer
-   .prompt(questions)
-   .then((answers) => {
-      console.log('answers:', answers);
-      
-      const fileData = `# ${answers.projectTitle}
+const fileData = `# ${answers.projectTitle}
 ## Description
 - ${answers.description}
 ## Installation
@@ -74,15 +86,17 @@ inquirer
 - ${answers.contribution}
 ## Tests
 - ${answers.tests}
+## License
+- ${answers.licenseType}
+- ${licenseDescription}
 `;
-      fs.writeFile('./README.md', fileData, 'utf8', (err) => {
-         if (err) {
-            console.log('err:', err);
-         } else {
-            console.log('Created file');
-         }
-      });
-   });
+fs.writeFile('./README.md', fileData, (err) => {
+   if (err) {
+      console.log('err:', err);
+   } else {
+      console.log('Created file');
+   }
+});
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
