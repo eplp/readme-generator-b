@@ -1,7 +1,8 @@
 //* Include packages needed for this application
 import inquirer from 'inquirer';
-import fs from 'fs';
 import fetch from 'node-fetch';
+import { makeBadge, ValidationError } from 'badge-maker';
+import fs from 'fs';
 
 // TODO: Create an array of questions for user input
 
@@ -66,10 +67,21 @@ const questions = [
 
 const answers = await inquirer.prompt(questions);
 
-const licenseKey = (licenseObjectList.filter((element) => element.name == answers.licenseType))[0].key;
+const licenseKey = licenseObjectList.filter((element) => element.name == answers.licenseType)[0].key;
 const licenseDescription = (await (await fetch(licensesURL + licenseKey, headers)).json()).description;
 
-const fileData = `# ${answers.projectTitle}
+//* license badge
+const format = {
+   label: 'license',
+   message: licenseKey.toUpperCase(),
+   labelColor: 'gray',
+   color: 'red',
+   style: 'flat'
+};
+const svg = makeBadge(format);
+
+//* create README.md file content
+const fileData = `# ${answers.projectTitle} ${svg}
 ## Description
 - ${answers.description}
 ## Installation
