@@ -38,8 +38,8 @@ const questions = [
 ];
 
 //* get list of licenses
-let licenseList = [];
-
+let licenseNames = [];
+let licenseUrls = [];
 const rawLicenses = await fetch('https://api.github.com/licenses', {
    headers: {
       Accept: 'application/vnd.github+json',
@@ -48,7 +48,8 @@ const rawLicenses = await fetch('https://api.github.com/licenses', {
 });
 const licenseData = await rawLicenses.json();
 licenseData.forEach((license) => {
-   licenseList.push({ name: license.name, url: 'https://choosealicense.com/licenses/' + license.key });
+   licenseNames.push(license.name);
+   licenseUrls.push('https://choosealicense.com/licenses/' + license.key);
 });
 console.log('licenseList outside:', licenseList);
 
