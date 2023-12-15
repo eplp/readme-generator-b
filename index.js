@@ -68,15 +68,15 @@ const questions = [
 const answers = await inquirer.prompt(questions);
 
 const licenseKey = licenseObjectList.filter((element) => element.name == answers.licenseType)[0].key;
-const licenseDescription = (await (await fetch(licensesURL + licenseKey, headers)).json()).description;
+const licenseDescription = (await(await fetch(licensesURL + '/' + licenseKey, headers)).json()).description;
 
 //* license badge
 const format = {
    label: 'license',
    message: licenseKey.toUpperCase(),
    labelColor: 'gray',
-   color: 'red',
-   style: 'flat'
+   color: 'brightgreen',
+   style: 'flat',
 };
 const svg = makeBadge(format);
 
