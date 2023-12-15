@@ -1,8 +1,10 @@
 //* Include packages needed for this application
 import inquirer from 'inquirer';
 import fetch from 'node-fetch';
-import { makeBadge, ValidationError } from 'badge-maker';
+// import { makeBadge, ValidationError } from 'badge-maker';
 import fs from 'fs';
+
+import { licenseBadge } from './utils/badges.js';
 
 // TODO: Create an array of questions for user input
 
@@ -68,20 +70,12 @@ const questions = [
 const answers = await inquirer.prompt(questions);
 
 const licenseKey = licenseObjectList.filter((element) => element.name == answers.licenseType)[0].key;
-const licenseDescription = (await(await fetch(licensesURL + '/' + licenseKey, headers)).json()).description;
+const licenseDescription = (await (await fetch(licensesURL + '/' + licenseKey, headers)).json()).description;
 
 //* license badge
-const format = {
-   label: 'license',
-   message: licenseKey.toUpperCase(),
-   labelColor: 'gray',
-   color: 'brightgreen',
-   style: 'flat',
-};
-const svg = makeBadge(format);
 
 //* create README.md file content
-const fileData = `# ${answers.projectTitle} ${svg}
+const fileData = `# ${answers.projectTitle} ${licenseBadge(licenseKey)}
 ## Description
 - ${answers.description}
 ## Installation
@@ -96,16 +90,19 @@ const fileData = `# ${answers.projectTitle} ${svg}
 - ${answers.licenseType}
 - ${licenseDescription}
 `;
-fs.writeFile('./README.md', fileData, (err) => {
-   if (err) {
-      console.log('err:', err);
-   } else {
-      console.log('Created file');
-   }
-});
+const fileName = './README.md';
+writeToFile(fileName, fileData);
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+   fs.writeFile('./README.md', fileData, (err) => {
+      if (err) {
+         console.log('err:', err);
+      } else {
+         console.log('Created file');
+      }
+   });
+}
 
 // TODO: Create a function to initialize app
 function init() {}
