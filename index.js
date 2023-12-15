@@ -8,13 +8,15 @@ import fetch from 'node-fetch';
 //* get list of licenses
 let licenseObjectList = [];
 let licenseList = [];
-const rawData = await fetch('https://api.github.com/licenses', {
+const licensesURL = 'https://api.github.com/licenses';
+const headers = {
    headers: {
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
    },
-});
-const licenseData = await rawData.json();
+};
+
+const licenseData = await (await fetch(licensesURL, headers)).json();
 licenseData.forEach((license) => {
    licenseObjectList.push({
       key: license.key,
@@ -64,16 +66,8 @@ const questions = [
 
 const answers = await inquirer.prompt(questions);
 
-const license = licenseObjectList.filter(
-   (element) => element.name == answers.licenseType
-);
-const rawDescription = await fetch('https://api.github.com/licenses/' + license[0].key, {
-   headers: {
-      Accept: 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-   },
-});
-const licenseDescription = (await rawDescription.json()).description
+const licenseKey = (licenseObjectList.filter((element) => element.name == answers.licenseType))[0].key;
+const licenseDescription = (await (await fetch(licensesURL + licenseKey, headers)).json()).description;
 
 const fileData = `# ${answers.projectTitle}
 ## Description
