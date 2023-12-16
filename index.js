@@ -1,9 +1,9 @@
 //* Include packages needed for this application
-
+import { inquirerPrompts } from './utils/inquirerPrompts.js';
 import { generateMarkdown } from './utils/generateMarkdown.js';
 import { writeToFile } from './utils/writeToFile.js';
-import { inquirerPrompts } from './utils/inquirerPrompts.js';
 
+//* program constants
 const fileName = './README.md';
 const githubApi = {
    licensesURL: 'https://api.github.com/licenses',
@@ -16,9 +16,9 @@ const githubApi = {
 };
 
 const init = async () => {
-   const { answers, licenseKeysList } = await inquirerPrompts(githubApi);
-   const fileData = await generateMarkdown(answers, licenseKeysList, githubApi);
-   writeToFile(fileName, fileData);
+   const { answers, licenseKeysList } = await inquirerPrompts(githubApi);  //* present prompts to user
+   const fileData = await generateMarkdown(answers, licenseKeysList, githubApi); //* create markdown file
+   writeToFile(fileName, fileData); //* write file to disk
 };
 
-init();
+init();  //* runs program
