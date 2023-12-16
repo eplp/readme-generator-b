@@ -1,13 +1,12 @@
 import { makeBadge, ValidationError } from 'badge-maker';
 
-const licenseBadge = (licenseKey) => {
+export const licenseBadge = (licenseKey) => {
    const format = {
       label: 'license',
       message: licenseKey.toUpperCase(),
-      labelColor: 'gray',
+      labelColor: 'blue',
       color: 'brightgreen',
-      style: 'flat',
+      style: 'plastic', //*  'plastic', 'flat', 'flat-square', 'for-the-badge' or 'social'
    };
    return makeBadge(format);
 };
-export { licenseBadge };
