@@ -20,5 +20,7 @@ export const generateMarkdown = async (answers, licenseKeysList, githubApi) => {
 ## License
 - ${answers.licenseType}
 - ${licenseDescription}
+## Questions
+If you have any questions, visit my GitHub profile page: ${'github.com/' + answers.userName} 
 `;
 };
