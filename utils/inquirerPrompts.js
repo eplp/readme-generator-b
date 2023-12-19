@@ -15,41 +15,52 @@ export const inquirerPrompts = async (githubApi) => {
    });
 
    const questions = [
-      // {
-      //    type: 'input',
-      //    name: 'projectTitle',
-      //    message: 'Enter the project title:',
-      // },
-      // {
-      //    type: 'input',
-      //    name: 'description',
-      //    message: 'Enter the project description:',
-      // },
-      // {
-      //    type: 'input',
-      //    name: 'installation',
-      //    message: 'Enter detailed installation instructions:',
-      // },
-      // {
-      //    type: 'input',
-      //    name: 'usage',
-      //    message: 'Enter detailed usage information:',
-      // },
-      // {
-      //    type: 'input',
-      //    name: 'contribution',
-      //    message: 'Enter project contribution instruction:',
-      // },
-      // {
-      //    type: 'input',
-      //    name: 'tests',
-      //    message: 'Enter detailed instructions about how to test the project:',
-      // },
+      {
+         type: 'input',
+         name: 'projectTitle',
+         message: 'Enter the project title:',
+      },
+      {
+         type: 'input',
+         name: 'description',
+         message: 'Enter the project description:',
+      },
+      {
+         type: 'confirm',
+         name: 'confirmTOC',
+         message: "Do you want a 'Table Of Contents' section?",
+      },
+      {
+         type: 'input',
+         name: 'installation',
+         message: 'Enter detailed installation instructions:',
+      },
+      {
+         type: 'input',
+         name: 'installation',
+         message: 'Enter detailed installation instructions:',
+      },
+      {
+         type: 'input',
+         name: 'usage',
+         message: 'Enter detailed usage information:',
+      },
+      {
+         type: 'input',
+         name: 'contribute',
+         message: 'Enter project contribution instruction:',
+      },
+      {
+         type: 'input',
+         name: 'tests',
+         message: 'Enter detailed instructions about how to test the project:',
+      },
       {
          type: 'rawlist',
          name: 'licenseType',
          message: 'Select your project license type:',
          choices: licenseList,
+         pageSize: 15,
       },
       {
          type: 'input',
