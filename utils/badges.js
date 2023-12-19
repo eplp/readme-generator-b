@@ -1,6 +1,6 @@
 import { makeBadge, ValidationError } from 'badge-maker';
 
-export const licenseBadge = (licenseKey) => {
+export const createBadge = (licenseKey) => {
    const format = {
       label: 'license',
       message: licenseKey.toUpperCase(),

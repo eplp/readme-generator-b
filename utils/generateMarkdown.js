@@ -1,62 +1,42 @@
-import { licenseBadge } from './badges.js';
+import { createBadge } from './badges.js';
 // import fetch from 'node-fetch';
 
 export const generateMarkdown = async (answers, licenseKeysList, githubApi) => {
-   //*
-   const licenseKey = licenseKeysList.filter((element) => element.name == answers.licenseType)[0].key;
-   const licenseDescription = (await (await fetch(githubApi.licensesURL + '/' + licenseKey, githubApi.headers)).json()).description;
-   let toc = answers.confirmTOC ? `## Table Of Contents
-- [Installation](#installation)
-- [Usage](#usage)}
-- [Tests](#tests)
-- [License information](#license)
-- [Questions](#questions)`: '';
-
-   return `# ${answers.projectTitle} ${licenseBadge(licenseKey)}
-## Description
+   //
+   const { license, licenseDescription } = await licenseType(licenseKeysList, githubApi);
+   
+   return `## ${answers.projectTitle}   ${createBadge(license.key)}
+### Description
 - ${answers.description}
-${answers.confirmTOC ? `## Table Of Contents
+${
+   answers.confirmTOC
+      ? `### Table Of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Tests](#tests)
 - [License information](#license)
-- [Questions](#questions)`:``}
-## Installation  
-- ${answers.installation}
-## Usage
-
-
-
-- ${answers.usage}
-## How to contribute
-
-
-
-
-- ${answers.contribute}
-## Tests
-
-
-
-
-- ${answers.tests}
-## License
-
-
-
-
-
-
-
-
-
-- ${answers.licenseType}
+- [Questions](#questions)
+${answers.confirmSubmit ? `- [U of U - Bootcamp](#u-of-u---bootcamp)` : ``}`
+      : ``
+}
+### Installation  
+${answers.installation}
+### Usage
+${answers.usage}
+### How to contribute
+${answers.contribute}
+### Tests
+${answers.tests}
+### License
+- This work is distributed under the ${answers.license.key + ' - ' + answers.licenseType}
 - ${licenseDescription}
-## Questions
-
-
-
-
-If you have any questions, visit my GitHub profile page: ${'github.com/' + answers.userName} or cantact me at: ${answers.email} 
+### Questions
+If you have any questions, visit my GitHub profile page: ${'github.com/' + answers.userName} or contact me at: ${answers.email}
+${
+   answers.confirmSubmit
+      ? `- GitHub repo: [${answers.repo}](${answers.repo})
+- Deployment link: ${answers.deployment}`
+      : ``
+}
 `;
 };
