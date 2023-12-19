@@ -1,8 +1,7 @@
 // import fetch from 'node-fetch';
 import inquirer from 'inquirer';
 
-export const inquirerPrompts =  async (githubApi) => {
-   
+export const inquirerPrompts = async (githubApi) => {
    let licenseKeysList = [];
    let licenseList = [];
    const licenseData = await (await fetch(githubApi.licensesURL, githubApi.headers)).json();
@@ -56,6 +55,11 @@ export const inquirerPrompts =  async (githubApi) => {
          type: 'input',
          name: 'userName',
          message: 'Enter your GitHub user name:',
+      },
+      {
+         type: 'input',
+         name: 'email',
+         message: 'Enter your email address:',
       },
    ];
 
