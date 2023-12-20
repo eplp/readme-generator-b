@@ -27,7 +27,7 @@ This application creates a readme.md file at its root directory through prompts 
 15. Congratulations! You got your readme.md file.
 
 ### Usage
-Watch the video available at [README.md Generator - video](https://github.com/eplp/readme-generator-b/blob/main/assets/images/readme-generator.mp4). When the page appears, click in the **'View raw** link at the center of the page to download it; then use your favorite video player.
+Watch the video available at [README.md Generator - video](https://github.com/eplp/readme-generator-b/blob/main/assets/images/readme-generator-video.mp4). When the page appears, click in the **'View raw** link at the center of the page to download it; then use your favorite video player.
 
 ![README.md Generator](assets/images/readme-generator.jpg)
 
@@ -43,4 +43,4 @@ This work is distributed under the license type: cc0-1.0 / Creative Commons Zero
 If you have any questions, visit my GitHub profile page: [github.com/eplp](https://github.com/eplp) or contact me at: [eplp@mail.com](mailto:eplp@mail.com).
 ### U of U - Bootcamp
 - GitHub repo link: [readme-generator-b](https://github.com/eplp/readme-generator-b)
-- Deployment/video link: [README.md Generator - video](https://github.com/eplp/readme-generator-b/blob/main/assets/images/readme-generator.mp4). When the page appears, click in the **'View raw'** link at the center of the page to download it; then use your favorite video player.
+- Deployment/video link: [README.md Generator - video](https://github.com/eplp/readme-generator-b/blob/main/assets/images/readme-generator-video.mp4). When the page appears, click in the **View raw** link at the center of the page to download it; then use your favorite video player.
