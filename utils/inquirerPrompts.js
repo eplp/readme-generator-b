@@ -22,7 +22,7 @@ export const inquirerPrompts = async (githubApi) => {
 Instructions:
 
 1. Understand what each prompt is asking you.
-2. Some prompts - Installation, Usage, Contributors, and Testing - will open your system default editor.
+2. Some prompts - Installation, Usage, Contributors, and Testing - will open your system default editor. IMPORTANT: When the editor opens, it opens behind the terminal. Make sure that you navigate to it to make it visible.
    
    a. Inside your editor you can add paragraphs, links, etc.
    b. Just follow standard markdown syntax (you can visit https://www.markdownguide.org/basic-syntax/) for lists, bullets, bold, italic, links, etc.
