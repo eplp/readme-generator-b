@@ -25,7 +25,7 @@ Instructions:
 1. Understand what each prompt is asking you.
 2. Some prompts (Installation, Usage, Contributors, Testing, etc.) will open your system default editor. IMPORTANT: When the editor opens, it may open behind the terminal. Make sure that you bring the editor to the front to enter your data.
    a. Inside your editor you can add paragraphs, links, etc.
-   b. Just follow standard markdown syntax (you can visit https://www.markdownguide.org/basic-syntax/) to review the sintax to create lists, bullets, bold, italic, links, etc.
+   b. Just follow standard markdown syntax (https://www.markdownguide.org/basic-syntax/) to create lists, bullets, bold, italic, links, etc.
    c. If you need to add a header, start at the #### level.
    d. When you finish, save the default file and close your editor.
    e. Your answer will be then automatically received by the application.
@@ -64,17 +64,17 @@ Press the 'Enter' key to start......
       {
          type: 'editor',
          name: 'usage',
-         message: 'Enter detailed usage information:',
+         message: 'Enter detailed usage instructions:',
       },
       {
          type: 'editor',
          name: 'contribute',
-         message: 'Enter project contribution instruction:',
+         message: 'Enter project contribution instructions:',
       },
       {
          type: 'editor',
          name: 'tests',
-         message: 'Enter detailed instructions about how to test the project:',
+         message: 'Enter detailed instructions about how to test the application:',
       },
       {
          type: 'rawlist',
@@ -95,19 +95,19 @@ Press the 'Enter' key to start......
       },
       {
          type: 'confirm',
-         name: 'confirmSubmit',
+         name: 'confirmUofU',
          message: "Do you want a section titled 'UofU Bootcamp'?",
       },
       {
          type: 'input',
          name: 'repo',
-         message: 'Enter your repo URL:',
+         message: 'Enter your repo URL using Markdown syntax [label](URL link):',
          when: (answers) => answers.confirmSubmit,
       },
       {
-         type: 'editor',
+         type: 'input',
          name: 'deployment',
-         message: 'Enter your deployment/video URL:',
+         message: 'Enter your deployment/video URL using Markdown syntax [label](URL link):',
          when: (answers) => answers.confirmSubmit,
       },
    ];
