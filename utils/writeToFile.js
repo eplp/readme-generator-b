@@ -6,7 +6,7 @@ export const writeToFile = (fileName, fileData) => {
       if (err) {
          console.log('***=> file: writeToFile.js:8 err:', err);
       } else {
-         console.log('***=>   file: writeToFile.js:10   Created fileName:', fileName);
+         console.log('***=> Created fileName:', fileName);
       }
    });
 

@@ -26,7 +26,8 @@ This application creates a readme.md file at its root directory through prompts 
 15. Congratulations! You got your readme.md file.
 
 ### Usage
-Watch the video available at [README.md Generator - video](README.md Generator - video).
+Watch the video available at [README.md Generator - video](assets/images/readme-generator.mp4).
+
 ### How to contribute
 Please follow the inistructions available in GitHub at [Contributing to a project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project).
 
@@ -34,9 +35,9 @@ Please follow the inistructions available in GitHub at [Contributing to a projec
 This application has not implemented any automated testing yet. However, the best way to test it is to use it and see the results. You may want to watch the application usage video shown above.
 
 ### License
-This work is distributed under the license type: mpl-2.0 / Mozilla Public License 2.0. Permissions of this weak copyleft license are conditioned on making available source code of licensed files and modifications of those files under the same license (or in certain cases, one of the GNU licenses). Copyright and license notices must be preserved. Contributors provide an express grant of patent rights. However, a larger work using the licensed work may be distributed under different terms and without source code for files added in the larger work.
+This work is distributed under the license type: bsl-1.0 / Boost Software License 1.0. A simple permissive license only requiring preservation of copyright and license notices for source (and not binary) distribution. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 ### Questions
-If you have any questions, visit my GitHub profile page: [github.com/eplp](github.com/eplp) or contact me at: [ep@mail.com](mailto:ep@mail.com).
+If you have any questions, visit my GitHub profile page: [github.com/eplp](github.com/eplp) or contact me at: [eplp@mail.com](mailto:eplp@mail.com).
 ### U of U - Bootcamp
-- GitHub repo link: [undefined](undefined)
-- Deployment/video link: [undefined](undefined)
+- GitHub repo link: [[readme-generator-b](https://github.com/eplp/readme-generator-b)]([readme-generator-b](https://github.com/eplp/readme-generator-b))
+- Deployment/video link: [[README.md Generator - video](assets/images/readme-generator.mp4)]([README.md Generator - video](assets/images/readme-generator.mp4))

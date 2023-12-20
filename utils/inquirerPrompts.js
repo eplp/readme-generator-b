@@ -102,13 +102,13 @@ Press the 'Enter' key to start......
          type: 'input',
          name: 'repo',
          message: 'Enter your repo URL using Markdown syntax [label](URL link):',
-         when: (answers) => answers.confirmSubmit,
+         when: (answers) => answers.confirmUofU,
       },
       {
          type: 'input',
          name: 'deployment',
          message: 'Enter your deployment/video URL using Markdown syntax [label](URL link):',
-         when: (answers) => answers.confirmSubmit,
+         when: (answers) => answers.confirmUofU,
       },
    ];
 
