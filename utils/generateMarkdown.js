@@ -12,6 +12,7 @@ ${
       ? `### Table Of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contribute](#how-to-contribute)
 - [Tests](#tests)
 - [License information](#license)
 - [Questions](#questions)
