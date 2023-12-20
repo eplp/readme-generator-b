@@ -25,7 +25,7 @@ Instructions:
 1. Understand what each prompt is asking you.
 2. Some prompts (Installation, Usage, Contributors, Testing, etc.) will open your system default editor. IMPORTANT: When the editor opens, it may open behind the terminal. Make sure that you bring the editor to the front to enter your data.
    a. Inside your editor you can add paragraphs, links, etc.
-   b. Just follow standard markdown syntax (you can visit https://www.markdownguide.org/basic-syntax/) for lists, bullets, bold, italic, links, etc.
+   b. Just follow standard markdown syntax (you can visit https://www.markdownguide.org/basic-syntax/) to review the sintax to create lists, bullets, bold, italic, links, etc.
    c. If you need to add a header, start at the #### level.
    d. When you finish, save the default file and close your editor.
    e. Your answer will be then automatically received by the application.

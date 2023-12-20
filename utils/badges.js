@@ -9,8 +9,10 @@ export const createBadge = (licenseKey) => {
       color: '#ce090a',
       style: 'plastic', //*  'plastic', 'flat', 'flat-square', 'for-the-badge' or 'social'
    };
+   
    const fileName = './assets/images/badge.svg';
    const fileData = makeBadge(format);
    writeToFile(fileName, fileData);
+   
    return;
 };

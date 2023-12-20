@@ -16,6 +16,7 @@ const githubApi = {
 };
 
 const init = async () => {
+   //
    const { answers, licenseKeysList } = await inquirerPrompts(githubApi);  //* present prompts to user
    const fileData = await generateMarkdown(answers, licenseKeysList, githubApi); //* create markdown file
    writeToFile(fileName, fileData); //* write file to disk
