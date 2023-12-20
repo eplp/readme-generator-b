@@ -15,13 +15,14 @@ ${
 - [Tests](#tests)
 - [License information](#license)
 - [Questions](#questions)
-${answers.confirmSubmit ? `- [U of U - Bootcamp](#u-of-u---bootcamp)` : ``}`
+${answers.confirmUofU ? `- [U of U - Bootcamp](#u-of-u---bootcamp)` : ``}`
       : ``
 }
 ### Installation  
 ${answers.installation}
 ### Usage
 ${answers.usage}
+![README.md Generator](assets/images/readme-generator.jpg)
 ### How to contribute
 ${answers.contribute}
 ### Tests
@@ -33,8 +34,8 @@ If you have any questions, visit my GitHub profile page: [${'github.com/' + answ
 ${
    answers.confirmUofU
       ? `### U of U - Bootcamp
-- GitHub repo link: [${answers.repo}](${answers.repo})
-- Deployment/video link: [${answers.deployment}](${answers.deployment})`
+- GitHub repo link: ${answers.repo}
+- Deployment/video link: ${answers.deployment}`
       : ``
 }
 `;
