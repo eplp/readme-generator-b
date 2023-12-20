@@ -2,6 +2,7 @@
 import inquirer from 'inquirer';
 
 export const inquirerPrompts = async (githubApi) => {
+   //
    let licenseKeysList = [];
    let licenseList = [];
    const licenseData = await (await fetch(githubApi.licensesURL, githubApi.headers)).json();
@@ -22,15 +23,12 @@ export const inquirerPrompts = async (githubApi) => {
 Instructions:
 
 1. Understand what each prompt is asking you.
-2. Some prompts - Installation, Usage, Contributors, and Testing - will open your system default editor. IMPORTANT: When the editor opens, it opens behind the terminal. Make sure that you navigate to it to make it visible.
-   
+2. Some prompts (Installation, Usage, Contributors, Testing, etc.) will open your system default editor. IMPORTANT: When the editor opens, it may open behind the terminal. Make sure that you bring the editor to the front to enter your data.
    a. Inside your editor you can add paragraphs, links, etc.
    b. Just follow standard markdown syntax (you can visit https://www.markdownguide.org/basic-syntax/) for lists, bullets, bold, italic, links, etc.
    c. If you need to add a header, start at the #### level.
    d. When you finish, save the default file and close your editor.
-   e. IF you are creating a UofU Bootcamp readme.md file for submition, accept the last prompt.
-
-Your answer will be then automatically received by the application.
+   e. Your answer will be then automatically received by the application.
 
 Enjoy it!
 

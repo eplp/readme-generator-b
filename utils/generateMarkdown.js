@@ -1,10 +1,8 @@
-import { createBadge } from './badges.js';
 import { license } from './license.js';
 
 export const generateMarkdown = async (answers, licenseKeysList, githubApi) => {
    const { appLicense, licenseDescription } = await license(answers.licenseType, licenseKeysList, githubApi);
-   console.log("file: generateMarkdown.js:6   appLicense, licenseDescription :", appLicense, licenseDescription )
-   return `## ${answers.projectTitle}   ${createBadge(appLicense[0].key)}
+   return `## ${answers.projectTitle}   ${`![](assets/images/badge.svg)`}
 ### Description
 - ${answers.description}
 ${
@@ -27,7 +25,7 @@ ${answers.contribute}
 ### Tests
 ${answers.tests}
 ### License
-- This work is distributed under this license type: ${appLicense[0].key + ' - ' + answers.licenseType}
+- This work is distributed under this license type: ${appLicense[0].key + ' / ' + answers.licenseType}
 - ${licenseDescription}
 ### Questions
 If you have any questions, visit my GitHub profile page: ${'github.com/' + answers.userName} or contact me at: ${answers.email}
