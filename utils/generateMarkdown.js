@@ -31,7 +31,7 @@ ${answers.tests}
 ### License
 This work is distributed under the license type: ${appLicense[0].key + ' / ' + answers.licenseType}. ${licenseDescription}
 ### Questions
-If you have any questions, visit my GitHub profile page: [${'github.com/' + answers.userName}](${'github.com/' + answers.userName}) or contact me at: [${answers.email}](mailto:${answers.email}).
+If you have any questions, visit my GitHub profile page: [github.com/${answers.userName}](github.com/${answers.userName}) or contact me at: [${answers.email}](mailto:${answers.email}).
 ${
    answers.confirmUofU
       ? `### U of U - Bootcamp
